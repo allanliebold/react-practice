@@ -7,26 +7,29 @@ import Footer from '../footer';
 class Layout extends React.Component {
   constructor() {
     super();
-    this.state = { name: 'React' };
+    this.state = {
+      title: 'React!',
+    };
   }
 
   saySomething() {
     return 'Something!';
   }
 
+  changeTitle(title) {
+    this.setState({title});
+  }
+
   render() {
-    setTimeout(() => {
-      this.setState({ name: 'It works!' });
-    }, 1000)
     return (
       <section>
-        <Header />
+        <Header changeTitle={this.changeTitle.bind(this)} title={this.title} />
 
-        <h1>{this.state.name}</h1>
+        <h2>{this.state.title}</h2>
         <p>These elements are wrapped in a section!</p>
         <p>This one says: {this.saySomething()}</p>
 
-        <Footer />
+        <Footer title={'Is it working?'} />
       </section>
     );
   }

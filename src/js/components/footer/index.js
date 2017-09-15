@@ -6,6 +6,7 @@ class Footer extends React.Component {
     return (
       <footer>
         This is a footer.
+        <p>{this.props.title}</p>
       </footer>
     );
   }
